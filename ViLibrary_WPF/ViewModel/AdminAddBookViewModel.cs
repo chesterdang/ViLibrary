@@ -18,8 +18,7 @@ namespace ViLibrary_WPF.ViewModel
         {
             Submit = new RelayCommand<Window>(p => true, p =>
             {
-                var name = p.FindName("username") as TextBox;
-                name.Text 
+
             }); 
         }
     }
