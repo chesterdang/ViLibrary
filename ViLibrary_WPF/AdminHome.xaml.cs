@@ -19,6 +19,7 @@ namespace LibraryManagementSystem
     /// </summary>
     public partial class AdminHome : Window
     { 
+
         public AdminHome()
         {
             InitializeComponent();
