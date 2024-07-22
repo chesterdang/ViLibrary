@@ -1,5 +1,5 @@
 ﻿using BusinessObjects;
-using FrameWPF.ViewModel;
+using ViLibrary_WPF.ViewModel;
 using LibraryManagementSystem;
 using System;
 using System.Collections.Generic;
@@ -21,10 +21,12 @@ namespace ViLibrary_WPF.ViewModel
             UserLog = new RelayCommand<Window>(p => true, p =>
             {
                 new UserLogin().Show();
+                p.Hide();
             });
             AdminLog = new RelayCommand<Window>(p => true, p =>
             {
                 new AdminLogin().Show();
+                p.Hide();
             });
         }
     }

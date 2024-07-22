@@ -1,5 +1,5 @@
 ﻿using BusinessObjects;
-using FrameWPF.ViewModel;
+using ViLibrary_WPF.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,8 +18,7 @@ namespace ViLibrary_WPF.ViewModel
         {
             Submit = new RelayCommand<Window>(p => true, p =>
             {
-                var name = p.FindName("username") as TextBox;
-                 
+
             }); 
         }
     }

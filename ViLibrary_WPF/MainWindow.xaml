@@ -36,11 +36,11 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Button>
-            <Image HorizontalAlignment="Left" Height="145" Margin="136,103,0,0" VerticalAlignment="Top" Width="142" Source="/Images/icons8-user-100.png" />
-        
+        <Image HorizontalAlignment="Left" Height="145" Margin="136,103,0,0" VerticalAlignment="Top" Width="142" Source="/Images/icons8-user-100.png" />
+
         <Image HorizontalAlignment="Left" Height="145" Margin="435,103,0,0" VerticalAlignment="Top" Width="142" Source="/Images/icons8-admin-settings-male-100.png" />
-        <Label Content="Welcome to Library Management System" Margin="177,35,0,0" FontWeight="Bold" FontSize="36" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FFB9FFEF" Background="{x:Null}" FontFamily="Sweet Hipster"/>
-        <Label Content="Contact us : abcd@gmail.com" HorizontalAlignment="Left" Margin="227,292,0,0" VerticalAlignment="Top" Foreground="#FFB9FFEF" FontFamily="Sweet Hipster" FontSize="36" Background="{x:Null}"/>
+        <Label Content="Welcome to Library Management System" Margin="65,29,0,0" FontWeight="Bold" FontSize="30" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FFB9FFEF" Background="{x:Null}" FontFamily="Sweet Hipster" RenderTransformOrigin="0.537,0.546"/>
+        <Label Content="Contact us : vilibrary@gmail.com" HorizontalAlignment="Left" Margin="364,343,0,0" VerticalAlignment="Top" Foreground="#FFB9FFEF" FontFamily="Sweet Hipster" FontSize="24" Background="{x:Null}"/>
 
 
 

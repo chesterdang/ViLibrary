@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 
 using System.Data;
 using System.Collections.ObjectModel;
+using BusinessObjects;
 
 namespace ViLibrary_WPF
 {
@@ -25,7 +26,7 @@ namespace ViLibrary_WPF
     {
         public int userId;
         //INITIALIZE THE REQUEST GV AND RETURN GV =>PL
-        public UserTransaction()
+        public UserTransaction(User user)
         {
             InitializeComponent();
         }
