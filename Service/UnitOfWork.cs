@@ -15,11 +15,11 @@ namespace Service
         private readonly RequestedUserDAO _requestedUserDAO;
         private readonly ReceivedUserDAO _receivedUserDAO;
         private readonly ReturnedUserDAO _returnedUserDAO;
-        private BookService _bookService;
-        private UserService _userService;
-        private RequestedUserService _requestedUserService;
-        private ReceivedUserService _receivedUserService;
-        private ReturnedUserService _returnedUserService;
+        public BookService _bookService;
+        public UserService _userService;
+        public RequestedUserService _requestedUserService;
+        public ReceivedUserService _receivedUserService;
+        public ReturnedUserService _returnedUserService;
 
         public UnitOfWork(LibraryDbContext context)
         {

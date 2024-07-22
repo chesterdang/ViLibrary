@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace LibraryManagementSystem
+namespace ViLibrary_WPF
 {
     /// <summary>
     /// Interaction logic for UserHome.xaml

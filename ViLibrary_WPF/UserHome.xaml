@@ -1,21 +1,59 @@
-﻿<Window x:Class="LibraryManagementSystem.UserHome"
+﻿<Window x:Class="ViLibrary_WPF.UserHome"
+        x:Name="UserHomeUC"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:LibraryManagementSystem"
+        xmlns:local="clr-namespace:LibraryManagementSystem" xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         WindowStyle="ToolWindow" ResizeMode="NoResize"
+         DataContext="{StaticResource UserHomeVM}"
         Title="User Home" Height="450" Width="800">
     <Window.Background>
         <ImageBrush ImageSource="/Images/stanislav-kondratiev-6pO3QFkk7hQ-unsplash.jpg"/>
     </Window.Background>
     <Grid>
         <StackPanel HorizontalAlignment="Left" Height="362" Margin="127,33,0,0" VerticalAlignment="Top" Width="655" Name="userStackPanel">
-
+            <Grid>
+                <DataGrid x:Name="BookDataGrid" AutoGenerateColumns="False"
+                  ItemsSource="{Binding Books, Mode=TwoWay}"
+                  SelectedItem="{Binding SelectedBook, Mode=TwoWay}"
+                  Margin="0,10,0,10" ColumnWidth="*">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding SelectionChangedCommand}"
+                                          CommandParameter="{Binding ElementName=UserHomeUC}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding BookId, UpdateSourceTrigger=PropertyChanged}" Width="Auto"/>
+                        <DataGridTextColumn Header="Title" Binding="{Binding BookName, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
+                        <DataGridTextColumn Header="Author" Binding="{Binding BookAuthor, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
+                        <DataGridTextColumn Header="ISBN" Binding="{Binding BookISBN, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
+                        <DataGridTextColumn Header="Price" Binding="{Binding BookPrice, StringFormat=C, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
+                        <DataGridTextColumn Header="Copies" Binding="{Binding BookCopies, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
+                        <DataGridTemplateColumn Header="Actions">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Request"
+                            Command="{Binding DataContext.Request, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                            CommandParameter="{Binding}">
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
         </StackPanel>
         <Button Content="Borrow" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top" Width="100" Name="BtnBorrow" />
-        <Button Content="Transaction" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" Width="100" Name="BtnTransaction" />
+        <Button Content="Transaction" 
+        HorizontalAlignment="Left" 
+        Margin="10,68,0,0" 
+        VerticalAlignment="Top" 
+        Width="100" 
+        Command="{Binding Transaction}" 
+        CommandParameter="{Binding ElementName=UserHomeUC}"/>
         <Button Content="Logout" HorizontalAlignment="Left" Margin="10,375,0,0" VerticalAlignment="Top" Width="100" x:Name="BtnLogout" />
     </Grid>
 </Window>

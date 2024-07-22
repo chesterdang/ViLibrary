@@ -3,5 +3,7 @@
                     xmlns:viewmodel="clr-namespace:ViLibrary_WPF.ViewModel">
 
     <viewmodel:MainWindowViewModel x:Key="MainWindowVM"></viewmodel:MainWindowViewModel>
-    <viewmodel:LoginViewModel x:Key="LoginVM"></viewmodel:LoginViewModel>
+    <viewmodel:UserHomeViewModel x:Key="UserHomeVM"></viewmodel:UserHomeViewModel>
+    <viewmodel:UserTransactionViewModel x:Key="UserTransactionVM"></viewmodel:UserTransactionViewModel>
+    
 </ResourceDictionary>

@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 using System.Data;
 using System.Collections.ObjectModel;
 
-namespace LibraryManagementSystem
+namespace ViLibrary_WPF
 {
     /// <summary>
     /// Interaction logic for UserTransaction.xaml
