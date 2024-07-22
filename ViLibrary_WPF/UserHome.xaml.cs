@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ViLibrary_WPF.ViewModel;
 
 namespace ViLibrary_WPF
 {
@@ -23,8 +24,9 @@ namespace ViLibrary_WPF
         public UserHome(User user)
         {
             InitializeComponent();
-            this.DataContext = new UserHomeViewModel();
+            this.DataContext = new UserHomeViewModel(user);
         }
-       
+
+        
     }
 }
