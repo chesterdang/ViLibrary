@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data;
 using System.Collections.ObjectModel;
+using BusinessObjects;
 
 namespace LibraryManagementSystem
 {
@@ -24,7 +25,7 @@ namespace LibraryManagementSystem
     {
         public int userId;
         //INITIALIZE THE BORROW GV =>PL
-        public UserBorrow()
+        public UserBorrow(User user)
         {
             InitializeComponent();
 
