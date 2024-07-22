@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\A-desktop-Wallpaper-of-the-sea-loneliness-pier.jpg" />
+    <None Remove="Images\icons8-admin-settings-male-100.png" />
+    <None Remove="Images\icons8-user-100.png" />
+    <None Remove="Images\stanislav-kondratiev-6pO3QFkk7hQ-unsplash.jpg" />
+    <None Remove="Images\yoab-anderson-IHC5LPAoGrs-unsplash (2).jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.122" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessObjects\BusinessObjects.csproj" />
+    <ProjectReference Include="..\Data\Data.csproj" />
+    <ProjectReference Include="..\Service\Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\A-desktop-Wallpaper-of-the-sea-loneliness-pier.jpg" />
+    <Resource Include="Images\icons8-admin-settings-male-100.png" />
+    <Resource Include="Images\icons8-user-100.png" />
+    <Resource Include="Images\stanislav-kondratiev-6pO3QFkk7hQ-unsplash.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\yoab-anderson-IHC5LPAoGrs-unsplash %282%29.jpg" />
+  </ItemGroup>
+
+</Project>
