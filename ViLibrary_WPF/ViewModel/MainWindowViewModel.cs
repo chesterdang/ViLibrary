@@ -21,10 +21,12 @@ namespace ViLibrary_WPF.ViewModel
             UserLog = new RelayCommand<Window>(p => true, p =>
             {
                 new UserLogin().Show();
+                p.Hide();
             });
             AdminLog = new RelayCommand<Window>(p => true, p =>
             {
                 new AdminLogin().Show();
+                p.Hide();
             });
         }
     }
