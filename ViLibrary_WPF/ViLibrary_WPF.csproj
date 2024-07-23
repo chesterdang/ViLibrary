@@ -36,4 +36,10 @@
     <Resource Include="Images\yoab-anderson-IHC5LPAoGrs-unsplash %282%29.jpg" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

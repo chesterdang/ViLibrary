@@ -108,7 +108,15 @@ namespace Data
                 entity.Property(e => e.DateRequested).IsRequired();
                 entity.Property(e => e.UserName).IsRequired().HasMaxLength(100);
             });
-
+            modelBuilder.Entity<Admin>().HasData(
+                new Admin
+                {
+                    AdminId = 1,
+                    AdminName = "admin",
+                    AdminEmail = "admin@admin.com",
+                    AdminPass = "Admin123@" // Ensure this is hashed in a real application
+                }
+            );
             base.OnModelCreating(modelBuilder);
         }
     }

@@ -15,8 +15,10 @@ using System.Windows.Shapes;
 
 using System.Data;
 using System.Collections.ObjectModel;
+using BusinessObjects;
+using ViLibrary_WPF.ViewModel;
 
-namespace LibraryManagementSystem
+namespace ViLibrary_WPF
 {
     /// <summary>
     /// Interaction logic for UserTransaction.xaml
@@ -25,9 +27,10 @@ namespace LibraryManagementSystem
     {
         public int userId;
         //INITIALIZE THE REQUEST GV AND RETURN GV =>PL
-        public UserTransaction()
+        public UserTransaction(User user)
         {
             InitializeComponent();
+            DataContext = new UserTransactionViewModel(user);
         }
         
     }
