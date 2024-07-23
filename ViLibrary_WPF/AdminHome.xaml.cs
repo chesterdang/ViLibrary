@@ -19,6 +19,7 @@ namespace ViLibrary_WPF
     /// </summary>
     public partial class AdminHome : Window
     { 
+
         public AdminHome()
         {
             InitializeComponent();

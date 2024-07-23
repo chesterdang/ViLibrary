@@ -4,28 +4,33 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LibraryManagementSystem"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
+             DataContext="{StaticResource AdminRequestVM}"
              d:DesignHeight="362" d:DesignWidth="655">
     <Grid>
         <StackPanel HorizontalAlignment="Left" Height="332" VerticalAlignment="Top" Width="655" Margin="10,30,-10,0">
-            <DataGrid IsReadOnly="True" Height="333" Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" Margin="0,0,24,0" x:Name="dgRequests" AutoGenerateColumns="False">
+            <DataGrid IsReadOnly="True" Height="333" ItemsSource="{Binding RequestedUsers, Mode=TwoWay}" Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" Margin="0,0,24,0" x:Name="dgRequests" AutoGenerateColumns="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Book Id" Binding="{Binding BookId}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Book Name" Binding="{Binding BookName}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Date Requested" Binding="{Binding DateRequested}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="User Id" Binding="{Binding UserId}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="User Name" Binding="{Binding UserName}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Book Id" Binding="{Binding BookId}" />
+                    <DataGridTextColumn Header="Book Name" Binding="{Binding BookName}" />
+                    <DataGridTextColumn Header="Date Requested" Binding="{Binding DateRequested}" />
+                    <DataGridTextColumn Header="User Id" Binding="{Binding UserId}" />
+                    <DataGridTextColumn Header="User Name" Binding="{Binding UserName}" />
                     <DataGridTemplateColumn Header="Actions">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="BtnAccept" Content=" Accept " ></Button>
+                                <Button Content="Accept"
+                                        Command="{Binding DataContext.AcceptCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                        CommandParameter="{Binding}" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="BtnReject" Content=" Reject " ></Button>
+                                <Button Content="Reject"
+                                        Command="{Binding DataContext.RejectCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                        CommandParameter="{Binding}" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -33,6 +38,5 @@
             </DataGrid>
         </StackPanel>
         <Label Content="Requests Section" HorizontalAlignment="Left" Margin="479,-7,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontFamily="NORTHEN" FontSize="20"/>
-
     </Grid>
 </UserControl>
