@@ -14,21 +14,21 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data;
 using System.Collections.ObjectModel;
+using ViLibrary_WPF.ViewModel;
 using BusinessObjects;
 
-namespace LibraryManagementSystem
+namespace ViLibrary_WPF
 {
     /// <summary>
     /// Interaction logic for UserBorrow.xaml
     /// </summary>
     public partial class UserBorrow : UserControl
     {
-        public int userId;
         //INITIALIZE THE BORROW GV =>PL
         public UserBorrow(User user)
         {
             InitializeComponent();
-
+            this.DataContext = new UserBorrowViewModel(user);
         }
         
     }

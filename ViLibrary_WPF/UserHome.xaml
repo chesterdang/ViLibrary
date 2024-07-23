@@ -8,6 +8,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowStyle="ToolWindow" ResizeMode="NoResize"
+
         Title="User Home" Height="450" Width="800">
     <Window.Background>
         <ImageBrush ImageSource="/Images/stanislav-kondratiev-6pO3QFkk7hQ-unsplash.jpg"/>
