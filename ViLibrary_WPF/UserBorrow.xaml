@@ -8,28 +8,26 @@
              mc:Ignorable="d" 
 
               d:DesignHeight="362" d:DesignWidth="655">
-    <Grid>
+     <Grid>
         <StackPanel HorizontalAlignment="Left" Height="332" VerticalAlignment="Top" Width="655" Margin="10,30,-10,0">
-            <DataGrid Height="333" Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" Margin="0,0,24,0" x:Name="dgBorrow" IsReadOnly="True" AutoGenerateColumns="False">
+            <DataGrid ItemsSource="{Binding Books}" SelectedItem="{Binding SelectedBook}" AutoGenerateColumns="False" IsReadOnly="True">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Book Id" Binding="{Binding BookId}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Book Name" Binding="{Binding BookName}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Book Author" Binding="{Binding BookAuthor}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Book ISBN" Binding="{Binding BookISBN}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Book Price" Binding="{Binding BookPrice}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Book Copies" Binding="{Binding BookCopies}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Book Id" Binding="{Binding BookId}"/>
+                    <DataGridTextColumn Header="Book Name" Binding="{Binding BookName}"/>
+                    <DataGridTextColumn Header="Book Author" Binding="{Binding BookAuthor}"/>
+                    <DataGridTextColumn Header="Book ISBN" Binding="{Binding BookISBN}"/>
+                    <DataGridTextColumn Header="Book Price" Binding="{Binding BookPrice}"/>
+                    <DataGridTextColumn Header="Book Copies" Binding="{Binding BookCopies}"/>
                     <DataGridTemplateColumn Header="Actions">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="BtnRequest" Content=" Request " ></Button>
+                                <Button Content="Request" Command="{Binding DataContext.Request, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
         <Label Content="Borrow Section" HorizontalAlignment="Left" Margin="496,-6,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontFamily="NORTHEN" FontSize="20"/>
-
     </Grid>
 </UserControl>

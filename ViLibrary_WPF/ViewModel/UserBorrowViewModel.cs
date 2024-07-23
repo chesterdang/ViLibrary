@@ -1,6 +1,5 @@
 ﻿using BusinessObjects;
 using Data;
-using FrameWPF.ViewModel;
 using Service;
 using System;
 using System.Collections.Generic;
@@ -120,7 +119,7 @@ namespace ViLibrary_WPF.ViewModel
         public UserBorrowViewModel(User user)
         {   
             _unitOfWork = new UnitOfWork(_context);
-            books = new ObservableCollection<Book>(_unitOfWork._bookService.GetAll());
+            books = new ObservableCollection<Book>(_unitOfWork._bookService.GetAll().Where(b => b.BookCopies > 0));
             Request = new RelayCommand<Book>(b=>true, b =>
             { 
                 try
@@ -128,10 +127,10 @@ namespace ViLibrary_WPF.ViewModel
                     var requestedUser = new RequestedUser()
                     {
                         BookId = b.BookId,
-                        UserId = 2,
+                        UserId = user.UserId,
                         BookName = b.BookName,
                         DateRequested = DateTime.Now,
-                        UserName = "User Two",
+                        UserName = user.UserName,
                     };
 
                     _unitOfWork._requestedUserService.Add(requestedUser);
@@ -141,7 +140,7 @@ namespace ViLibrary_WPF.ViewModel
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Cannot request book: " + ex.Message);
+                    MessageBox.Show("Cannot request book, because you sent a request to admin!");
                 }
             });
            

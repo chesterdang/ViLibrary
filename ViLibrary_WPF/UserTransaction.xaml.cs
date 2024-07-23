@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using System.Data;
 using System.Collections.ObjectModel;
 using BusinessObjects;
+using ViLibrary_WPF.ViewModel;
 
 namespace ViLibrary_WPF
 {
@@ -29,6 +30,7 @@ namespace ViLibrary_WPF
         public UserTransaction(User user)
         {
             InitializeComponent();
+            DataContext = new UserTransactionViewModel(user);
         }
         
     }
