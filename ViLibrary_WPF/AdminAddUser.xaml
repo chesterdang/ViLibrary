@@ -20,7 +20,7 @@
         <TextBox HorizontalAlignment="Left" Height="23" Margin="30,54,0,0" TextWrapping="Wrap" Text="" Name="tbUName" VerticalAlignment="Top" Width="262"/>
         
         <Label Content="Admission Number" HorizontalAlignment="Left" Margin="30,79,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="30,110,0,0" TextWrapping="Wrap" Text="" Name="tbUAdNo" VerticalAlignment="Top" Width="262"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="30,110,0,0" TextWrapping="Wrap" Text="" Name="tbUAdNo" VerticalAlignment="Top" Width="262" />
         
         <Label Content="Email Address" HorizontalAlignment="Left" Margin="30,135,0,0" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="30,166,0,0" TextWrapping="Wrap" Text="" Name="tbUEmail"  VerticalAlignment="Top" Width="262"/>

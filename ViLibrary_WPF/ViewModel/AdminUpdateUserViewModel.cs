@@ -35,24 +35,19 @@ namespace ViLibrary_WPF.ViewModel
                     var email = p.FindName("tbUEmail") as TextBox;
                     var pass = p.FindName("tbUPass") as TextBox;
 
-                    if (_unitOfWork._userService.Get(u => u.UserAdNo == adNo.Text) != null)
-                    {
-                        MessageBox.Show("User administration number existed!");
-                    } else
-                    {
-                        user.UserName = name.Text;
-                        user.UserAdNo = adNo.Text;
-                        user.UserEmail = email.Text;
-                        user.UserPass = pass.Text;
+                    user.UserName = name.Text;
+                    user.UserAdNo = adNo.Text;
+                    user.UserEmail = email.Text;
+                    user.UserPass = pass.Text;
 
-                        _unitOfWork._userService.Update(user);
-                        _unitOfWork.Save();
-                        p.Close();
-                    }
+                    _unitOfWork._userService.Update(user);
+                    _unitOfWork.Save();
+                    MessageBox.Show("Update user successfully!");
+                    p.Close();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Cannot update book!");
+                    MessageBox.Show("Cannot update user!");
                 }
             });
         }

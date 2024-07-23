@@ -36,21 +36,16 @@ namespace ViLibrary_WPF.ViewModel
                     var price = p.FindName("tbBPrice") as TextBox;
                     var copies = p.FindName("tbBCopy") as TextBox;
 
-                    if (_unitOfWork._bookService.Get(b => b.BookISBN == isbn.Text) != null)
-                    {
-                        MessageBox.Show("ISBN existed!");
-                    } else
-                    {
-                        book.BookName = name.Text;
-                        book.BookAuthor = author.Text;
-                        book.BookISBN = isbn.Text;
-                        book.BookPrice = decimal.Parse(price.Text);
-                        book.BookCopies = int.Parse(copies.Text);
+                    book.BookName = name.Text;
+                    book.BookAuthor = author.Text;
+                    book.BookISBN = isbn.Text;
+                    book.BookPrice = decimal.Parse(price.Text);
+                    book.BookCopies = int.Parse(copies.Text);
 
-                        _unitOfWork._bookService.Update(book);
-                        _unitOfWork.Save();
-                        p.Close();
-                    }
+                    _unitOfWork._bookService.Update(book);
+                    _unitOfWork.Save();
+                    MessageBox.Show("Update book successfully!");
+                    p.Close();
                 }
                 catch (Exception ex)
                 {
