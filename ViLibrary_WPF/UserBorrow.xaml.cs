@@ -16,6 +16,7 @@ using System.Data;
 using System.Collections.ObjectModel;
 using ViLibrary_WPF.ViewModel;
 using BusinessObjects;
+using Data;
 
 namespace ViLibrary_WPF
 {
@@ -25,10 +26,10 @@ namespace ViLibrary_WPF
     public partial class UserBorrow : UserControl
     {
         //INITIALIZE THE BORROW GV =>PL
-        public UserBorrow(User user)
+        public UserBorrow(LibraryDbContext db, User user)
         {
             InitializeComponent();
-            this.DataContext = new UserBorrowViewModel(user);
+            this.DataContext = new UserBorrowViewModel(db, user);
         }
         
     }

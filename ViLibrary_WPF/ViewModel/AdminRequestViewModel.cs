@@ -14,7 +14,6 @@ namespace ViLibrary_WPF.ViewModel
 {
     public class AdminRequestViewModel : BaseViewModel
     {
-        private LibraryDbContext _context = new LibraryDbContext();
         private UnitOfWork _unitOfWork;
         private ObservableCollection<RequestedUser> _requestedUsers;
 
@@ -24,7 +23,7 @@ namespace ViLibrary_WPF.ViewModel
         public ICommand AcceptCommand { get; set; }
         public ICommand RejectCommand { get; set; }
 
-        public AdminRequestViewModel()
+        public AdminRequestViewModel(LibraryDbContext _context)
         {
             _unitOfWork = new UnitOfWork(_context);
             _requestedUsers = new ObservableCollection<RequestedUser>(_unitOfWork._requestedUserService.GetAll());

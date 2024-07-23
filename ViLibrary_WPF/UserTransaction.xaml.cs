@@ -17,6 +17,7 @@ using System.Data;
 using System.Collections.ObjectModel;
 using BusinessObjects;
 using ViLibrary_WPF.ViewModel;
+using Data;
 
 namespace ViLibrary_WPF
 {
@@ -27,10 +28,10 @@ namespace ViLibrary_WPF
     {
         public int userId;
         //INITIALIZE THE REQUEST GV AND RETURN GV =>PL
-        public UserTransaction(User user)
+        public UserTransaction(LibraryDbContext db,User user)
         {
             InitializeComponent();
-            DataContext = new UserTransactionViewModel(user);
+            DataContext = new UserTransactionViewModel(db,user);
         }
         
     }

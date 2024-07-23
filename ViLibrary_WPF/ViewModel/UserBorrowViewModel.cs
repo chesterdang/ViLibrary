@@ -14,8 +14,6 @@ namespace ViLibrary_WPF.ViewModel
 {
     public class UserBorrowViewModel : BaseViewModel
     {
-        public UserService _userService { get; set; }
-        private LibraryDbContext _context = new LibraryDbContext();
         private UnitOfWork _unitOfWork;
         private ObservableCollection<Book> books;
         private int id;
@@ -116,7 +114,7 @@ namespace ViLibrary_WPF.ViewModel
 
         public ICommand Request { get; set; }
         public ICommand SelectionChangedCommand { get; set; }
-        public UserBorrowViewModel(User user)
+        public UserBorrowViewModel(LibraryDbContext _context,User user)
         {   
             _unitOfWork = new UnitOfWork(_context);
             books = new ObservableCollection<Book>(_unitOfWork._bookService.GetAll().Where(b => b.BookCopies > 0));

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,17 +12,18 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ViLibrary_WPF.ViewModel;
 
-namespace LibraryManagementSystem
-{
+namespace ViLibrary_WPF {
     /// <summary>
     /// Interaction logic for AdminAddBook.xaml
     /// </summary>
     public partial class AdminAddBook : Window
     {
-        public AdminAddBook()
+        public AdminAddBook(LibraryDbContext db)
         {
             InitializeComponent();
+            this.DataContext = new AdminAddBookViewModel(new AdminBooksViewModel(db),db);
         }
         //ADD THE BOOKS DETAILS INTO BOOK TABEL =>PL
        

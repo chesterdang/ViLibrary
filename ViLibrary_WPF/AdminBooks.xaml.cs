@@ -17,6 +17,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using System.Collections.ObjectModel;
+using Data;
+using ViLibrary_WPF.ViewModel;
 
 namespace LibraryManagementSystem
 {
@@ -26,10 +28,10 @@ namespace LibraryManagementSystem
     public partial class AdminBooks : UserControl
     {
         //INITIALIZE THE BOOKS GV =>PL
-        public AdminBooks()
+        public AdminBooks(LibraryDbContext db)
         {
             InitializeComponent();
-
+            this.DataContext = new AdminBooksViewModel(db);
         }
         
     }

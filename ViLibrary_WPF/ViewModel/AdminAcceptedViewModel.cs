@@ -13,14 +13,13 @@ namespace ViLibrary_WPF.ViewModel
 {
     public class AdminAcceptedViewModel : BaseViewModel
     {
-        private LibraryDbContext _context = new LibraryDbContext();
         private UnitOfWork _unitOfWork;
         private ObservableCollection<ReceivedUser> _receivedUsers;
 
         public ObservableCollection<ReceivedUser> ReceivedUsers { get { return _receivedUsers; } set { _receivedUsers = value; OnPropertyChanged(); } }
 
         public ICommand LoadCommand { get; set; }
-        public AdminAcceptedViewModel()
+        public AdminAcceptedViewModel(LibraryDbContext _context)
         {
             _unitOfWork = new UnitOfWork(_context);
             _receivedUsers = new ObservableCollection<ReceivedUser>(_unitOfWork._receivedUserService.GetAll());

@@ -15,10 +15,9 @@ namespace ViLibrary_WPF.ViewModel
 {
     public class UserLoginViewModel : BaseViewModel
     {
-        private LibraryDbContext _context = new LibraryDbContext();
         private UnitOfWork unitOfWork;
         public ICommand Login {  get; set; }
-        public UserLoginViewModel()
+        public UserLoginViewModel(LibraryDbContext _context)
         {
             unitOfWork = new UnitOfWork(_context);
             Login = new RelayCommand<Window>(p => true, p =>
@@ -34,7 +33,7 @@ namespace ViLibrary_WPF.ViewModel
                         if (user!= null)
                         {
                             MessageBox.Show("Logged in successfully...");
-                            new UserHome(user).Show();
+                            new UserHome(_context, user).Show();
                             username.Clear();
                             password.Clear();
                             p.Hide();

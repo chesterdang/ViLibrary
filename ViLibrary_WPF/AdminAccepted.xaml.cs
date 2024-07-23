@@ -15,8 +15,10 @@ using System.Windows.Shapes;
 
 using System.Data;
 using System.Collections.ObjectModel;
+using Data;
+using ViLibrary_WPF.ViewModel;
 
-namespace LibraryManagementSystem
+namespace ViLibrary_WPF
 {
     /// <summary>
     /// Interaction logic for AdminAccepted.xaml
@@ -24,9 +26,10 @@ namespace LibraryManagementSystem
     public partial class AdminAccepted : UserControl
     {
         //INITIALIZE THE ACCEPTED GV =>PL
-        public AdminAccepted()
+        public AdminAccepted(LibraryDbContext db)
         {
             InitializeComponent();
+            this.DataContext = new AdminAcceptedViewModel(db);
         }
         
     }

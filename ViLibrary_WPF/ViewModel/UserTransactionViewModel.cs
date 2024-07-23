@@ -11,7 +11,6 @@ namespace ViLibrary_WPF.ViewModel
 {
     public class UserTransactionViewModel : BaseViewModel
     {
-        private LibraryDbContext _context = new LibraryDbContext();
         private UnitOfWork _unitOfWork;
 
         private ObservableCollection<RequestedUser> requestedBooks;
@@ -39,7 +38,7 @@ namespace ViLibrary_WPF.ViewModel
 
         public ICommand Returned { get; set; }
 
-        public UserTransactionViewModel(User user)
+        public UserTransactionViewModel(LibraryDbContext _context, User user)
         {
             _unitOfWork = new UnitOfWork(_context);
             LoadData(user);

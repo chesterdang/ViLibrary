@@ -12,6 +12,9 @@ using System.Drawing;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Data;
+using ViLibrary_WPF.ViewModel;
+
 
 
 namespace ViLibrary_WPF
@@ -21,9 +24,10 @@ namespace ViLibrary_WPF
     /// </summary>
     public partial class AdminLogin : Window
     {
-        public AdminLogin()
+        public AdminLogin(LibraryDbContext db)
         {
             InitializeComponent();
+            this.DataContext = new AdminLoginViewModel(db);
         }
         
     }

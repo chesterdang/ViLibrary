@@ -6,7 +6,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ViLibrary_WPF" xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
-        DataContext="{StaticResource MainWindowVM}"
         WindowStyle="ToolWindow" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Title="Library Management System" Height="398" Width="727">

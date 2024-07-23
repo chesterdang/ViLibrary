@@ -1,4 +1,5 @@
 ﻿using BusinessObjects;
+using Data;
 using LibraryManagementSystem;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace ViLibrary_WPF.ViewModel
     {
         public ICommand Login { get; set; }
 
-        public AdminLoginViewModel()
+        public AdminLoginViewModel(LibraryDbContext _context)
         {
             Login = new RelayCommand<Window>(p => true, p =>
             {
@@ -29,7 +30,7 @@ namespace ViLibrary_WPF.ViewModel
                         if (username.Text.Equals("admin@admin.com") && password.Password.Equals("Admin123@"))
                         {
                             MessageBox.Show("Logged in successfully...");
-                            new AdminHome().Show();
+                            new AdminHome(_context).Show();
                             username.Clear();
                             password.Clear();
                             p.Close();

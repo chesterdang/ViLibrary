@@ -19,7 +19,6 @@ namespace ViLibrary_WPF.ViewModel
 {
     public class AdminBooksViewModel : BaseViewModel
     {
-        private LibraryDbContext _context = new LibraryDbContext();
         private UnitOfWork _unitOfWork;
 
 
@@ -30,21 +29,21 @@ namespace ViLibrary_WPF.ViewModel
         public ICommand Edit { get; set; }
         public ICommand Delete { get; set; }
 
-        public AdminBooksViewModel()
+        public AdminBooksViewModel(LibraryDbContext _context)
         {
             _unitOfWork = new UnitOfWork(_context);
             books = new ObservableCollection<Book>(_unitOfWork._bookService.GetAll());
             Add = new RelayCommand<UserControl>(p => true, p =>
             {
-                var addBookWindow = new AdminAddBook();
-                var addBookVM = new AdminAddBookViewModel(this);
+                var addBookWindow = new AdminAddBook(_context);
+                var addBookVM = new AdminAddBookViewModel(this,_context);
                 addBookWindow.DataContext = addBookVM;
                 addBookWindow.Show();
             });
             Edit = new RelayCommand<Book>(p => true, p =>
             {
                 var updateWindow = new AdminUpdateBook();
-                updateWindow.DataContext = new AdminUpdateBookViewModel(p);
+                updateWindow.DataContext = new AdminUpdateBookViewModel(p, _context);
                 updateWindow.Show();
             });
             Delete = new RelayCommand<Book>(p => true, p =>

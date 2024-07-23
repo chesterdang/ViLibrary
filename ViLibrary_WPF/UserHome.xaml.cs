@@ -1,4 +1,5 @@
 ﻿using BusinessObjects;
+using Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,10 @@ namespace ViLibrary_WPF
     /// </summary>
     public partial class UserHome : Window
     {
-        public UserHome(User user)
+        public UserHome(LibraryDbContext db, User user)
         {
             InitializeComponent();
-            this.DataContext = new UserHomeViewModel(user);
+            this.DataContext = new UserHomeViewModel(db, user);
         }
 
         

@@ -16,14 +16,13 @@ namespace ViLibrary_WPF.ViewModel
 {
     public class AdminUpdateBookViewModel : BaseViewModel
     {
-        private LibraryDbContext _context = new LibraryDbContext();
         private UnitOfWork _unitOfWork;
 
         private Book book;
         public Book Book { get { return book; } set { book = value; OnPropertyChanged(); } }
 
         public ICommand Update {  get; set; }
-        public AdminUpdateBookViewModel(Book book) 
+        public AdminUpdateBookViewModel(Book book, LibraryDbContext _context) 
         {
             _unitOfWork = new UnitOfWork(_context);
             this.book = book;
@@ -37,16 +36,21 @@ namespace ViLibrary_WPF.ViewModel
                     var price = p.FindName("tbBPrice") as TextBox;
                     var copies = p.FindName("tbBCopy") as TextBox;
 
-                    book.BookName = name.Text;
-                    book.BookAuthor = author.Text;
-                    book.BookISBN = isbn.Text;
-                    book.BookPrice = decimal.Parse(price.Text);
-                    book.BookCopies = int.Parse(copies.Text);
-                    
-                    _unitOfWork._bookService.Update(book);
-                    _unitOfWork.Save();
-                    p.Close();
+                    if (_unitOfWork._bookService.Get(b => b.BookISBN == isbn.Text) != null)
+                    {
+                        MessageBox.Show("ISBN existed!");
+                    } else
+                    {
+                        book.BookName = name.Text;
+                        book.BookAuthor = author.Text;
+                        book.BookISBN = isbn.Text;
+                        book.BookPrice = decimal.Parse(price.Text);
+                        book.BookCopies = int.Parse(copies.Text);
 
+                        _unitOfWork._bookService.Update(book);
+                        _unitOfWork.Save();
+                        p.Close();
+                    }
                 }
                 catch (Exception ex)
                 {

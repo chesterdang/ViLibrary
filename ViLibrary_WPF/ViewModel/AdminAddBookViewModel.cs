@@ -17,12 +17,11 @@ namespace ViLibrary_WPF.ViewModel
 {
     public class AdminAddBookViewModel : BaseViewModel
     {
-        private LibraryDbContext _context = new LibraryDbContext();
         private UnitOfWork _unitOfWork;
         private AdminBooksViewModel _adminBooksViewModel;
         public ICommand Submit {  get; set; }
         
-        public AdminAddBookViewModel(AdminBooksViewModel adminBooksViewModel)
+        public AdminAddBookViewModel(AdminBooksViewModel adminBooksViewModel, LibraryDbContext _context)
         {
             _adminBooksViewModel = adminBooksViewModel;
             _unitOfWork = new UnitOfWork(_context);
@@ -36,20 +35,28 @@ namespace ViLibrary_WPF.ViewModel
                     var price = p.FindName("tbBPrice") as TextBox;
                     var copies = p.FindName("tbBCopy") as TextBox;
 
-                    var book = new Book()
+                    if (_unitOfWork._bookService.Get(b => b.BookISBN == isbn.Text) != null)
                     {
-                        BookName = name.Text,
-                        BookAuthor = author.Text,
-                        BookISBN = isbn.Text,
-                        BookPrice = decimal.Parse(price.Text),
-                        BookCopies = int.Parse(copies.Text)
-                    };
-                    _unitOfWork._bookService.Add(book);
-                    _unitOfWork.Save();
-                    _adminBooksViewModel.AddBook(book);
-                    p.Close();
-                    
-                } catch (Exception ex)
+                        MessageBox.Show("ISBN existed!");
+                    }
+                    else
+                    {
+                        var book = new Book()
+                        {
+                            BookName = name.Text,
+                            BookAuthor = author.Text,
+                            BookISBN = isbn.Text,
+                            BookPrice = decimal.Parse(price.Text),
+                            BookCopies = int.Parse(copies.Text)
+                        };
+                        _unitOfWork._bookService.Add(book);
+                        _unitOfWork.Save();
+                        _adminBooksViewModel.AddBook(book);
+                        MessageBox.Show("Add Book Successfully");
+                        p.Close();
+                    }
+                }
+                catch (Exception ex)
                 {
                     MessageBox.Show("Cannot create new book!");
                 }

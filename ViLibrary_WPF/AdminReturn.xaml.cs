@@ -14,8 +14,10 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data;
 using System.Collections.ObjectModel;
+using Data;
+using ViLibrary_WPF.ViewModel;
 
-namespace LibraryManagementSystem
+namespace ViLibrary_WPF
 {
     /// <summary>
     /// Interaction logic for AdminReturn.xaml
@@ -23,9 +25,10 @@ namespace LibraryManagementSystem
     public partial class AdminReturn : UserControl
     {
         //INITIALIZE THE RETURN GV =>PL
-        public AdminReturn()
+        public AdminReturn(LibraryDbContext db)
         {
             InitializeComponent();
+            this.DataContext = new AdminReturnViewModel(db);
         }
         
     }

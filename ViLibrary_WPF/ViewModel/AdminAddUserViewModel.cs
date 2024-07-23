@@ -15,13 +15,12 @@ namespace ViLibrary_WPF.ViewModel
 {
     public class AdminAddUserViewModel : BaseViewModel
     {
-        private LibraryDbContext _context = new LibraryDbContext();
         private UnitOfWork _unitOfWork;
         private AdminUsersViewModel _adminUsersViewModel;
 
         public ICommand Submit { get; set; }
 
-        public AdminAddUserViewModel(AdminUsersViewModel adminUsersViewModel)
+        public AdminAddUserViewModel(AdminUsersViewModel adminUsersViewModel, LibraryDbContext _context)
         {
             _unitOfWork = new UnitOfWork(_context);
             _adminUsersViewModel = adminUsersViewModel;
@@ -34,19 +33,25 @@ namespace ViLibrary_WPF.ViewModel
                     var email = p.FindName("tbUEmail") as TextBox;
                     var pass = p.FindName("tbUPass") as TextBox;
 
-                    var user = new User()
+                    if (_unitOfWork._userService.Get(u => u.UserAdNo == adNo.Text) != null)
                     {
-                        UserName = name.Text,
-                        UserAdNo = adNo.Text,
-                        UserEmail = email.Text,
-                        UserPass = pass.Text
-                    };
-                    _unitOfWork._userService.Add(user);
-                    _unitOfWork.Save();
-                    _adminUsersViewModel.AddUser(user);
-                    p.Close();
-
-
+                        MessageBox.Show("User administration number existed!");
+                    }
+                    else
+                    {
+                        var user = new User()
+                        {
+                            UserName = name.Text,
+                            UserAdNo = adNo.Text,
+                            UserEmail = email.Text,
+                            UserPass = pass.Text
+                        };
+                        _unitOfWork._userService.Add(user);
+                        _unitOfWork.Save();
+                        _adminUsersViewModel.AddUser(user);
+                        MessageBox.Show("Add User Successfully!");
+                        p.Close();
+                    }
                 }
                 catch (Exception ex)
                 {

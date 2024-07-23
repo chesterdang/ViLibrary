@@ -15,14 +15,14 @@ namespace ViLibrary_WPF.ViewModel
 {
     public class AdminUpdateUserViewModel : BaseViewModel
     {
-        private LibraryDbContext _context = new LibraryDbContext();
+       
         private UnitOfWork _unitOfWork;
 
         private User user;
         public User User { get { return user; } set { user = value; OnPropertyChanged(); } }
 
         public ICommand Update { get; set; }
-        public AdminUpdateUserViewModel(User user)
+        public AdminUpdateUserViewModel(LibraryDbContext _context , User user)
         {
             _unitOfWork = new UnitOfWork(_context);
             this.user = user;
@@ -35,15 +35,20 @@ namespace ViLibrary_WPF.ViewModel
                     var email = p.FindName("tbUEmail") as TextBox;
                     var pass = p.FindName("tbUPass") as TextBox;
 
-                    user.UserName = name.Text;
-                    user.UserAdNo = adNo.Text;
-                    user.UserEmail = email.Text;
-                    user.UserPass = pass.Text;
+                    if (_unitOfWork._userService.Get(u => u.UserAdNo == adNo.Text) != null)
+                    {
+                        MessageBox.Show("User administration number existed!");
+                    } else
+                    {
+                        user.UserName = name.Text;
+                        user.UserAdNo = adNo.Text;
+                        user.UserEmail = email.Text;
+                        user.UserPass = pass.Text;
 
-                    _unitOfWork._userService.Update(user);
-                    _unitOfWork.Save();
-                    p.Close();
-
+                        _unitOfWork._userService.Update(user);
+                        _unitOfWork.Save();
+                        p.Close();
+                    }
                 }
                 catch (Exception ex)
                 {

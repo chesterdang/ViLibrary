@@ -1,4 +1,5 @@
 ﻿using BusinessObjects;
+using Data;
 using LibraryManagementSystem;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace ViLibrary_WPF.ViewModel
 {
     public class AdminHomeViewModel : BaseViewModel
     {
+        
         public ICommand Books { get; set; }
         public ICommand Users { get; set; }
         public ICommand Requests { get; set; }
@@ -20,37 +22,37 @@ namespace ViLibrary_WPF.ViewModel
         public ICommand Return { get; set; }
         public ICommand Logout { get; set; }
 
-        public AdminHomeViewModel()
+        public AdminHomeViewModel(LibraryDbContext _context)
         {
             Books = new RelayCommand<Window>(p => true, p =>
             {
                 var stackPanel = p.FindName("adminStackPanel") as StackPanel;
                 stackPanel.Children.Clear();
-                stackPanel.Children.Add(new AdminBooks());
+                stackPanel.Children.Add(new AdminBooks(_context));
             });
             Users = new RelayCommand<Window>(p => true, p =>
             {
                 var stackPanel = p.FindName("adminStackPanel") as StackPanel;
                 stackPanel.Children.Clear();
-                stackPanel.Children.Add(new AdminUsers());
+                stackPanel.Children.Add(new AdminUsers(_context));
             });
             Requests = new RelayCommand<Window>(p => true, p =>
             {
                 var stackPanel = p.FindName("adminStackPanel") as StackPanel;
                 stackPanel.Children.Clear();
-                stackPanel.Children.Add(new AdminRequests());
+                stackPanel.Children.Add(new AdminRequests(_context));
             });
             Accepted = new RelayCommand<Window>(p => true, p =>
             {
                 var stackPanel = p.FindName("adminStackPanel") as StackPanel;
                 stackPanel.Children.Clear();
-                stackPanel.Children.Add(new AdminAccepted());
+                stackPanel.Children.Add(new AdminAccepted(_context));
             });
             Return = new RelayCommand<Window>(p => true, p =>
             {
                 var stackPanel = p.FindName("adminStackPanel") as StackPanel;
                 stackPanel.Children.Clear();
-                stackPanel.Children.Add(new AdminReturn());
+                stackPanel.Children.Add(new AdminReturn(_context));
             });
             Logout = new RelayCommand<Window>(p => true, p =>
             {

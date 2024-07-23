@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,15 +13,16 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ViLibrary_WPF.ViewModel;
 
-namespace LibraryManagementSystem
+namespace ViLibrary_WPF 
 {
     /// <summary>
     /// Interaction logic for AdminAddUser.xaml
     /// </summary>
     public partial class AdminAddUser : Window
     {
-        public AdminAddUser()
+        public AdminAddUser(LibraryDbContext db)
         {
             InitializeComponent();
         }

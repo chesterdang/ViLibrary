@@ -21,20 +21,20 @@ namespace ViLibrary_WPF.ViewModel
         public ICommand Borrow {  get; set; }
         public ICommand Transactions { get; set; }
         public ICommand Logout { get; set; }
-        public UserHomeViewModel(User user)
+        public UserHomeViewModel(LibraryDbContext _context,User user)
         {
 
             Borrow = new RelayCommand<Window>(p => true, p =>
             {
                 var stackPanel = p.FindName("userStackPanel") as StackPanel;
-                var userBorrow = new UserBorrow(user);
+                var userBorrow = new UserBorrow(_context,user);
                 stackPanel.Children.Clear();
                 stackPanel.Children.Add(userBorrow);
             });
             Transactions = new RelayCommand<Window>(p=>true, p =>
             {
                 var stackPanel = p.FindName("userStackPanel") as StackPanel;
-                var userTransaction = new UserTransaction(user);
+                var userTransaction = new UserTransaction(_context,user);
                 stackPanel.Children.Clear();
                 stackPanel.Children.Add(userTransaction);
             });

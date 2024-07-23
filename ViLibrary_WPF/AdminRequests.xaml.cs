@@ -14,8 +14,11 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data;
 using System.Collections.ObjectModel;
+using Data;
+using ViLibrary_WPF.ViewModel;
 
-namespace LibraryManagementSystem
+
+namespace ViLibrary_WPF
 {
     /// <summary>
     /// Interaction logic for AdminRequests.xaml
@@ -23,9 +26,10 @@ namespace LibraryManagementSystem
     public partial class AdminRequests : UserControl
     {
         //INITIALIZE THE REQUESTS GV =>PL
-        public AdminRequests()
+        public AdminRequests(LibraryDbContext db)
         {
             InitializeComponent();
+            this.DataContext = new AdminRequestViewModel(db);
         }
         
     }

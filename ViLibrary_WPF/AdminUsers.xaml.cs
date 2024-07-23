@@ -14,8 +14,10 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data;
 using System.Collections.ObjectModel;
+using Data;
+using ViLibrary_WPF.ViewModel;
 
-namespace LibraryManagementSystem
+namespace ViLibrary_WPF
 {
     /// <summary>
     /// Interaction logic for AdminUsers.xaml
@@ -23,9 +25,10 @@ namespace LibraryManagementSystem
     public partial class AdminUsers : UserControl
     {
         //INITIALIZE THE USERS GV =>PL
-        public AdminUsers()
+        public AdminUsers(LibraryDbContext db)
         {
             InitializeComponent();
+            this.DataContext = new AdminUsersViewModel(db);
         }
        
     }

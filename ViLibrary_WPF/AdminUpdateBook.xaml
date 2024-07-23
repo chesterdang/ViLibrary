@@ -1,4 +1,4 @@
-﻿<Window x:Class="LibraryManagementSystem.AdminUpdateBook"
+﻿<Window x:Class="ViLibrary_WPF.AdminUpdateBook"
         x:Name="AdminUpdateBookWD"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"

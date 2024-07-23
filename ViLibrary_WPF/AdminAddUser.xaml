@@ -1,4 +1,4 @@
-﻿<Window x:Class="LibraryManagementSystem.AdminAddUser"
+﻿<Window x:Class="ViLibrary_WPF.AdminAddUser"
         x:Name="AdminAddUserWD"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
