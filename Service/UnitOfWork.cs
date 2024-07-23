@@ -9,6 +9,7 @@ namespace Service
 {
     public class UnitOfWork
     {
+
         public readonly LibraryDbContext _context;
         public readonly UserDAO _userDAO;
         public readonly BookDAO _bookDAO;
@@ -17,6 +18,7 @@ namespace Service
         public readonly ReturnedUserDAO _returnedUserDAO;
         public BookService _bookService;
         public UserService _userService;
+
         public RequestedUserService _requestedUserService;
         public ReceivedUserService _receivedUserService;
         public ReturnedUserService _returnedUserService;

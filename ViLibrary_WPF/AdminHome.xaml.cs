@@ -12,13 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace LibraryManagementSystem
+namespace ViLibrary_WPF
 {
     /// <summary>
     /// Interaction logic for AdminHome.xaml
     /// </summary>
     public partial class AdminHome : Window
     { 
+
         public AdminHome()
         {
             InitializeComponent();

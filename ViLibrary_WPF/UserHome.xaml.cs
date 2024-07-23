@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,18 +12,21 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ViLibrary_WPF.ViewModel;
 
-namespace LibraryManagementSystem
+namespace ViLibrary_WPF
 {
     /// <summary>
     /// Interaction logic for UserHome.xaml
     /// </summary>
     public partial class UserHome : Window
     {
-        public UserHome()
+        public UserHome(User user)
         {
             InitializeComponent();
+            this.DataContext = new UserHomeViewModel(user);
         }
-       
+
+        
     }
 }
