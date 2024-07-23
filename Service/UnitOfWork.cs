@@ -9,17 +9,17 @@ namespace Service
 {
     public class UnitOfWork
     {
-        private readonly LibraryDbContext _context;
-        private readonly UserDAO _userDAO;
-        private readonly BookDAO _bookDAO;
-        private readonly RequestedUserDAO _requestedUserDAO;
-        private readonly ReceivedUserDAO _receivedUserDAO;
-        private readonly ReturnedUserDAO _returnedUserDAO;
-        private BookService _bookService;
-        private UserService _userService;
-        private RequestedUserService _requestedUserService;
-        private ReceivedUserService _receivedUserService;
-        private ReturnedUserService _returnedUserService;
+        public readonly LibraryDbContext _context;
+        public readonly UserDAO _userDAO;
+        public readonly BookDAO _bookDAO;
+        public readonly RequestedUserDAO _requestedUserDAO;
+        public readonly ReceivedUserDAO _receivedUserDAO;
+        public readonly ReturnedUserDAO _returnedUserDAO;
+        public BookService _bookService;
+        public UserService _userService;
+        public RequestedUserService _requestedUserService;
+        public ReceivedUserService _receivedUserService;
+        public ReturnedUserService _returnedUserService;
 
         public UnitOfWork(LibraryDbContext context)
         {
