@@ -16,7 +16,9 @@ namespace Service
         private readonly ReceivedUserDAO _receivedUserDAO;
         private readonly ReturnedUserDAO _returnedUserDAO;
         public BookService _bookService;
-        private UserService _userService;
+
+        public UserService _userService;
+
         public RequestedUserService _requestedUserService;
         public ReceivedUserService _receivedUserService;
         public ReturnedUserService _returnedUserService;

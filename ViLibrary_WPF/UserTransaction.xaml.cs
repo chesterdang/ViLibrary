@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 
 using System.Data;
 using System.Collections.ObjectModel;
+using BusinessObjects;
 
 namespace LibraryManagementSystem
 {
@@ -25,7 +26,7 @@ namespace LibraryManagementSystem
     {
         public int userId;
         //INITIALIZE THE REQUEST GV AND RETURN GV =>PL
-        public UserTransaction()
+        public UserTransaction(User user)
         {
             InitializeComponent();
         }

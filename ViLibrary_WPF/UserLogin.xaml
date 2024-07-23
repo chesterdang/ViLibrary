@@ -1,10 +1,12 @@
-﻿<Window x:Class="LibraryManagementSystem.UserLogin"
+﻿<Window x:Class="ViLibrary_WPF.UserLogin"
+        x:Name="UserLoginVM"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:LibraryManagementSystem"
+        xmlns:local="clr-namespace:LibraryManagementSystem" xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
+        DataContext="{StaticResource UserLoginVM}"
         WindowStartupLocation="CenterScreen"
         WindowStyle="ToolWindow" ResizeMode="NoResize"
         Title="User Login" Height="400" Width="341">
@@ -18,9 +20,16 @@
             <Label Content="Email" Height="32"/>
             <TextBox Height="20" TextWrapping="Wrap" x:Name="tbUserEmail"/>
             <Label Content="Password" Height="32"/>
-            <TextBox Height="20" TextWrapping="Wrap" x:Name="tbUserPass"/>
+            <PasswordBox PasswordChar="*" Height="20"  x:Name="tbUserPass"/>
         </StackPanel>
-        <Button Content="Login" HorizontalAlignment="Left" Margin="66,274,0,0" VerticalAlignment="Top" Width="74" x:Name="BtnLogin" />
-        <Label Content="" HorizontalAlignment="Left" Margin="66,308,0,0" VerticalAlignment="Top" Width="204" x:Name="alertUser" Foreground="Red"/>
+        <Button Content="Login" HorizontalAlignment="Left" Margin="66,274,0,0" VerticalAlignment="Top" Width="74" x:Name="BtnLogin">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding Login}" 
+                    CommandParameter="{Binding ElementName =UserLoginVM}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+            <Label Content="" HorizontalAlignment="Left" Margin="66,308,0,0" VerticalAlignment="Top" Width="204" x:Name="alertUser" Foreground="Red"/>
     </Grid>
 </Window>
