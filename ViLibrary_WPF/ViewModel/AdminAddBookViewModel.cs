@@ -36,19 +36,25 @@ namespace ViLibrary_WPF.ViewModel
                     var price = p.FindName("tbBPrice") as TextBox;
                     var copies = p.FindName("tbBCopy") as TextBox;
 
-                    var book = new Book()
+                    if (_unitOfWork._bookService.Get(b => b.BookISBN == isbn.Text) != null)
                     {
-                        BookName = name.Text,
-                        BookAuthor = author.Text,
-                        BookISBN = isbn.Text,
-                        BookPrice = decimal.Parse(price.Text),
-                        BookCopies = int.Parse(copies.Text)
-                    };
-                    _unitOfWork._bookService.Add(book);
-                    _unitOfWork.Save();
-                    _adminBooksViewModel.AddBook(book);
-                    p.Close();
-                    
+                        MessageBox.Show("ISBN existed!");
+                    } else
+                    {
+                        var book = new Book()
+                        {
+                            BookName = name.Text,
+                            BookAuthor = author.Text,
+                            BookISBN = isbn.Text,
+                            BookPrice = decimal.Parse(price.Text),
+                            BookCopies = int.Parse(copies.Text)
+                        };
+                        _unitOfWork._bookService.Add(book);
+                        _unitOfWork.Save();
+                        _adminBooksViewModel.AddBook(book);
+                        MessageBox.Show("Add Book Successfully");
+                        p.Close();
+                    }
                 } catch (Exception ex)
                 {
                     MessageBox.Show("Cannot create new book!");
