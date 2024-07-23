@@ -1,14 +1,25 @@
 ﻿<UserControl x:Class="LibraryManagementSystem.AdminUsers"
+             x:Name="AdminUsersVM"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:LibraryManagementSystem"
+             xmlns:local="clr-namespace:LibraryManagementSystem" xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
+             DataContext="{StaticResource AdminUsersVM}"
             d:DesignHeight="362" d:DesignWidth="655">
     <Grid>
+        <Button Content="Add User" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="11,0,0,0" Name="BtnAdd">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding Add}" 
+    CommandParameter="{Binding ElementName = AdminUsersWD}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
         <StackPanel HorizontalAlignment="Left" Height="332" VerticalAlignment="Top" Width="655" Margin="10,30,-10,0">
-            <DataGrid IsReadOnly="True" Height="332" Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" Margin="0,0,25,0" Name="dgUsers" AutoGenerateColumns="False">
+            <DataGrid IsReadOnly="True" Height="332" Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" Margin="0,0,25,0" Name="dgUsers" 
+                      ItemsSource="{Binding Users, Mode=TwoWay}" AutoGenerateColumns="False" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="User Id" Binding="{Binding UserId}"></DataGridTextColumn>
                     <DataGridTextColumn Header="User Name" Binding="{Binding UserName}"></DataGridTextColumn>
@@ -18,14 +29,28 @@
                     <DataGridTemplateColumn Header="Actions">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="BtnEdit" Content=" Edit " ></Button>
+                                <Button x:Name="BtnEdit" Content=" Edit " >
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <i:InvokeCommandAction Command="{Binding DataContext.Edit, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                                    CommandParameter="{Binding}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="BtnDelete" Content=" Delete " ></Button>
+                                <Button x:Name="BtnDelete" Content=" Delete " >
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <i:InvokeCommandAction Command="{Binding DataContext.Delete, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                                CommandParameter="{Binding}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -34,7 +59,7 @@
 
             </DataGrid>
         </StackPanel>
-        <Button Content="Add User" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="11,0,0,0" Name="BtnAdd"/>
+        
         <Label Content="User Section" HorizontalAlignment="Left" Margin="521,-6,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontFamily="NORTHEN" FontSize="20"/>
 
     </Grid>

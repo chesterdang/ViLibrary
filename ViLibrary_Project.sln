@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessObjects", "BusinessObjects\BusinessObjects.csproj", "{659197D6-504F-4C2E-AF38-3E78C98A0E79}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessObjects", "BusinessObjects\BusinessObjects.csproj", "{659197D6-504F-4C2E-AF38-3E78C98A0E79}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{2FCE3EB4-07A3-4C26-85D7-3197F883D035}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{2FCE3EB4-07A3-4C26-85D7-3197F883D035}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{C3D96AA3-49D9-4CC3-8A70-D23B91A1A6E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{C3D96AA3-49D9-4CC3-8A70-D23B91A1A6E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViLibrary_WPF", "ViLibrary_WPF\ViLibrary_WPF.csproj", "{77A16EBC-BD85-49D8-BDE2-1A9111628470}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViLibrary_WPF", "ViLibrary_WPF\ViLibrary_WPF.csproj", "{77A16EBC-BD85-49D8-BDE2-1A9111628470}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

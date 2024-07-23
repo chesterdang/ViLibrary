@@ -1,8 +1,14 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:viewmodel="clr-namespace:ViLibrary_WPF.ViewModel">
 
     <viewmodel:MainWindowViewModel x:Key="MainWindowVM"></viewmodel:MainWindowViewModel>
+    <viewmodel:AdminAddBookViewModel x:Key="AdminAddBookVM"></viewmodel:AdminAddBookViewModel>
+    <viewmodel:AdminAddUserViewModel x:Key="AdminAddUserVM"></viewmodel:AdminAddUserViewModel>
+    <viewmodel:AdminUpdateBookViewModel x:Key="AdminUpdateBookVM"></viewmodel:AdminUpdateBookViewModel>
+    <viewmodel:AdminUpdateUserViewModel x:Key="AdminUpdateUserVM"></viewmodel:AdminUpdateUserViewModel>
+    <viewmodel:AdminBooksViewModel x:Key="AdminBooksVM"></viewmodel:AdminBooksViewModel>
+    <viewmodel:AdminUsersViewModel x:Key="AdminUsersVM"></viewmodel:AdminUsersViewModel>
     <viewmodel:AdminRequestViewModel x:Key="AdminRequestVM"></viewmodel:AdminRequestViewModel>
     <viewmodel:AdminAcceptedViewModel x:Key="AdminAcceptedVM"></viewmodel:AdminAcceptedViewModel>
     <viewmodel:AdminReturnViewModel x:Key="AdminReturnVM"></viewmodel:AdminReturnViewModel>
@@ -11,5 +17,6 @@
     <viewmodel:UserLoginViewModel x:Key="UserLoginVM"></viewmodel:UserLoginViewModel>
     
     <viewmodel:AdminHomeViewModel x:Key="AdminHomeVM"></viewmodel:AdminHomeViewModel>
+
 
 </ResourceDictionary>
